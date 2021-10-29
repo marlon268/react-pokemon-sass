@@ -17,7 +17,7 @@ export const useGetPokemons = () => {
 
    useEffect(() => {
       axios
-         .get('https://pokeapi.co/api/v2/pokemon?limit=5&offset=0')
+         .get('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
          .then((response) => {
             setPokemons([...pokemons, ...response.data.results]);
          })
@@ -32,8 +32,6 @@ export const useGetPokemons = () => {
          setPokemonInfo([...pokemonInfo, ...pokemonIn]);
       });
    }, [pokemons]);
-
-   console.log(pokemonInfo);
 
    if (pokemonInfo.length <= 0) {
       return {};

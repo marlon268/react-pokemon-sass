@@ -1,0 +1,33 @@
+.header {
+   width: auto;
+   display: flex;
+   overflow-x: auto;
+   border-bottom: solid 1px $color-text;
+   box-shadow: 0px 1px 10px $color-text;
+   margin-bottom: 1rem;
+}
+.header::-webkit-scrollbar {
+   display: none;
+}
+
+.avatar {
+   &-img {
+      width: 65px;
+      height: 65px;
+      margin: 5px 5px 0 5px;
+
+      border: 1px solid darken($color-icon-hover, 1);
+      border-radius: 50%;
+      object-fit: contain;
+   }
+   &-contain {
+      margin-bottom: 0.3rem;
+   }
+
+   p {
+      font-size: 0.8rem;
+      text-align: center;
+      font-family: $font-p;
+      font-weight: 600;
+   }
+}

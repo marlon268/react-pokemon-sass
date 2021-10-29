@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import {
-   BrowserRouter as BRouter,
-   Switch,
-   Route,
-   Link,
-} from 'react-router-dom';
+import { BrowserRouter as BRouter, Switch, Route } from 'react-router-dom';
+import { Header } from '../components/Header';
+import { Nav } from '../components/Nav';
 
 import { useGetPokemons } from '../hooks/useGetPokemons';
 import { Home } from '../pages/Home';
@@ -20,12 +17,20 @@ export const AppRouter = () => {
       dispatch(pokeGetStore(pokemonInfo));
    }
 
+   if (pokemonInfo.length <= 0) {
+      return <h1>Cargando...</h1>;
+   }
+
    return (
       <>
          <BRouter>
-            <Switch>
-               <Route exact path="/" component={Home} />
-            </Switch>
+            <div className="container">
+               <Nav />
+               <Header />
+               <Switch>
+                  <Route exact path="/" component={Home} />
+               </Switch>
+            </div>
          </BRouter>
       </>
    );
